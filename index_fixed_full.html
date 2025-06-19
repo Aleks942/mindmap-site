@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mind Map – Aleks</title>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #ffffff;
+      font-family: sans-serif;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+    #add-task-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    #clock {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      font-size: 14px;
+      color: #333;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock">00:00:00</div>
+  <button id="add-task-btn">➕ Новая задача</button>
+  <svg id="markmap"></svg>
+
+  <script type="text/markdown">
+# 🧠 MindMap: План
+
+## Crypto Growth Signals
+- Airdrops
+- Whale Alerts
+- TradingView + Telegram
+- Galxe, Zealy, Layer3
+
+## .EXE & Windows
+- Оптимизация системы
+- Утилиты для слабых ПК
+- Русский / польский интерфейс
+
+## Работа в Польше
+- Поиск + резюме
+- Легализация семьи
+- План действий
+
+  </script>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
