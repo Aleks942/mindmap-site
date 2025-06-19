@@ -36,7 +36,9 @@
   <div id="clock">--:--</div>
   <button id="add-task-btn">+ Новая задача</button>
 
-  <script type="text/markdown">
+  <svg id="markmap"></svg>
+
+  <script type="text/markdown" id="mindmap-content">
 # Проекты Aleks
 
 ## Crypto Growth Signals 🚀
@@ -80,6 +82,17 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
+
+    document.getElementById('add-task-btn').addEventListener('click', () => {
+      const content = document.getElementById('mindmap-content');
+      const newTask = prompt('Введите текст новой задачи:');
+      if (newTask) {
+        content.textContent += `\n- ${newTask}`;
+        location.reload();
+      }
+    });
+
+    window.markmap.autoLoader.renderAll();
   </script>
 </body>
 </html>
